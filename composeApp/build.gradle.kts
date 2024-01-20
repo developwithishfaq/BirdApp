@@ -43,19 +43,22 @@ kotlin {
             implementation(libs.compose.ui.tooling.preview)
             implementation(libs.androidx.activity.compose)
 
-            implementation("io.ktor:ktor-client-android:$ktorVersion")
-            implementation("cafe.adriel.voyager:voyager-koin:$voyagerVersion")
-            implementation("cafe.adriel.voyager:voyager-screenmodel:$voyagerVersion")
-
+            implementation(libs.ktor.client.android)
+            implementation(libs.cafe.adriel.voyager.voyager.koin)
 
             //koin
             implementation(project.dependencies.platform("io.insert-koin:koin-bom:3.5.1"))
             implementation("io.insert-koin:koin-core")
             implementation("io.insert-koin:koin-android")
+            // Screen Model
+            implementation(libs.cafe.adriel.voyager.voyager.screenmodel)
+
+            // Koin integration
+            implementation(libs.cafe.adriel.voyager.voyager.koin)
 
         }
         iosMain.dependencies {
-            implementation("io.ktor:ktor-client-darwin:$ktorVersion")
+            implementation(libs.ktor.ktor.client.darwin)
         }
         commonMain.dependencies {
             implementation(compose.runtime)
@@ -66,17 +69,13 @@ kotlin {
             implementation(compose.components.resources)
             implementation(libs.kamel.image)
 
-            api("dev.icerock.moko:mvvm-core:0.16.1")
+//            api("dev.icerock.moko:mvvm-core:0.16.1")
             // compose multiplatform
-            api("dev.icerock.moko:mvvm-compose:0.16.1")
-            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
-            implementation("io.ktor:ktor-client-core:$ktorVersion")
-            implementation("io.ktor:ktor-client-content-negotiation:$ktorVersion")
-            implementation("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
-            implementation("cafe.adriel.voyager:voyager-screenmodel:$voyagerVersion")
-
-
-
+//            api("dev.icerock.moko:mvvm-compose:0.16.1")
+            implementation(libs.kotlinx.coroutines.core)
+            implementation(libs.ktor.client.core)
+            implementation(libs.ktor.client.content.negotiation)
+            implementation(libs.ktor.serialization.kotlinx.json)
             // Multiplatform
 
             //koin
@@ -84,14 +83,17 @@ kotlin {
             implementation("io.insert-koin:koin-core")
             implementation("io.insert-koin:koin-compose")
 
+            // Koin integration
+            implementation(libs.cafe.adriel.voyager.voyager.koin)
+
             // Navigator
-            implementation("cafe.adriel.voyager:voyager-navigator:$voyagerVersion")
+            implementation(libs.voyager.navigator)
             // TabNavigator
-            implementation("cafe.adriel.voyager:voyager-tab-navigator:$voyagerVersion")
+            implementation(libs.voyager.tab.navigator)
             // Transitions
-            implementation("cafe.adriel.voyager:voyager-transitions:$voyagerVersion")
+            implementation(libs.voyager.transitions)
 
-
+            implementation(libs.cafe.adriel.voyager.voyager.screenmodel)
 
         }
         desktopMain.dependencies {

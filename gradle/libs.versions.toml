@@ -12,12 +12,17 @@ androidx-material = "1.10.0"
 androidx-test-junit = "1.1.5"
 compose = "1.5.4"
 compose-plugin = "1.5.11"
+ktorVersion = "2.3.7"
+coroutinesVersion = "1.7.3"
 plugin-serialization = "1.9.21"
 junit = "4.13.2"
 kamelImage = "0.9.1"
 kotlin = "1.9.21"
+voyagerVersion = "1.0.0"
 
 [libraries]
+cafe-adriel-voyager-voyager-koin = { module = "cafe.adriel.voyager:voyager-koin", version.ref = "voyagerVersion" }
+cafe-adriel-voyager-voyager-screenmodel = { module = "cafe.adriel.voyager:voyager-screenmodel", version.ref = "voyagerVersion" }
 kamel-image = { module = "media.kamel:kamel-image", version.ref = "kamelImage" }
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
@@ -34,6 +39,15 @@ compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = 
 compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
 compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose" }
 compose-material = { module = "androidx.compose.material:material", version.ref = "compose" }
+ktor-client-android = { module = "io.ktor:ktor-client-android", version.ref = "ktorVersion" }
+ktor-ktor-client-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "ktorVersion" }
+ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktorVersion" }
+ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktorVersion" }
+ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktorVersion" }
+voyager-navigator = { module = "cafe.adriel.voyager:voyager-navigator", version.ref = "voyagerVersion" }
+voyager-transitions = { module = "cafe.adriel.voyager:voyager-transitions", version.ref = "voyagerVersion" }
+voyager-tab-navigator = { module = "cafe.adriel.voyager:voyager-tab-navigator", version.ref = "voyagerVersion" }
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutinesVersion" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

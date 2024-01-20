@@ -1,6 +1,5 @@
 package screens
 
-import screens.home_screen.BirdsViewModel
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -28,12 +27,13 @@ import androidx.compose.ui.unit.dp
 import common.Common.BASE_URL
 import io.kamel.image.KamelImage
 import io.kamel.image.asyncPainterResource
+import screens.home_screen.BirdsScreenModel
 
 
 @Composable
 fun BirdsListScreen(
-    birdsViewModel: BirdsViewModel,
-    uiState: BirdsViewModel.BirdsUiState,
+    birdsViewModel: BirdsScreenModel,
+    uiState: BirdsScreenModel.BirdsUiState,
     forFav: Boolean = false,
     moveToPhotoViewer: (Int) -> Unit
 ) {
@@ -88,7 +88,6 @@ fun BirdsListScreen(
                             .clickable {
                                 birdsViewModel.addToFav(item)
                             },
-                        colorFilter = ColorFilter.tint(Color.Red)
                     )
                 }
             }

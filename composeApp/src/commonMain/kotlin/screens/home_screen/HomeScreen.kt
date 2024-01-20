@@ -12,12 +12,9 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import cafe.adriel.voyager.core.screen.Screen
+import cafe.adriel.voyager.koin.getScreenModel
 import cafe.adriel.voyager.navigator.LocalNavigator
-import dev.icerock.moko.mvvm.compose.getViewModel
-import dev.icerock.moko.mvvm.compose.viewModelFactory
-import domain.BirdsLoaderRepository
 import kotlinx.coroutines.launch
-import org.koin.compose.koinInject
 import screens.BirdsListScreen
 import screens.ImageViewerScreen
 import screens.home_screen.components.BottomBar
@@ -29,12 +26,8 @@ class HomeScreen : Screen {
     @Composable
     override fun Content() {
         val navigator = LocalNavigator.current
-        val repository = koinInject<BirdsLoaderRepository>()
 
-        val viewModel = getViewModel(Unit, viewModelFactory {
-            BirdsViewModel(repository)
-        })
-
+        val screenModel = getScreenModel<BirdsScreenModel>()
         val pagerState = rememberPagerState {
             2
         }
@@ -54,14 +47,14 @@ class HomeScreen : Screen {
                 .fillMaxSize()
         ) {
 
-            val uiState by viewModel.state.collectAsState()
+            val uiState by screenModel.state.collectAsState()
 
             HorizontalPager(
                 state = pagerState,
                 modifier = Modifier.fillMaxSize().padding(it)
             ) {
                 BirdsListScreen(
-                    birdsViewModel = viewModel,
+                    birdsViewModel = screenModel,
                     forFav = it == 1,
                     uiState = uiState,
                     moveToPhotoViewer = {
